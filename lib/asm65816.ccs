@@ -3,21 +3,21 @@
 //
 // Addressing mode tags:
 //
-// (none)	Implied or Accumulator
-// _i		Immediate
-// _8		Immediate, 8-bit register
-// _d		Direct page
-// _di		Direct indirect
-// _dl		Direct indirect long
-// _a		Absolute
-// _al		Absolute long
-// _x		Absolute indexed,X
-// _xl		Absolute long indexed,X
-// _y		Absolute indexed,Y
-// _dx		Direct page indexed,X
-// _dxi		Direct page indexed indirect,X
-// _diy		Direct page indirect indexed,Y
-// _dly		Direct page indirect long indexed,Y
+// (none)       Implied or Accumulator
+// _i           Immediate
+// _8           Immediate, 8-bit register
+// _d           Direct page
+// _di          Direct indirect
+// _dl          Direct indirect long
+// _a           Absolute
+// _al          Absolute long
+// _x           Absolute indexed,X
+// _xl          Absolute long indexed,X
+// _y           Absolute indexed,Y
+// _dx          Direct page indexed,X
+// _dxi         Direct page indexed indirect,X
+// _diy         Direct page indirect indexed,Y
+// _dly         Direct page indirect long indexed,Y
 //
 
 command adr24(a) "[{byte[0] a} {byte[1] a} {byte[2] a}]"
@@ -75,6 +75,8 @@ command CLV			"[b8]"
 command SEC			"[38]"
 command SED			"[f8]"
 command SEI			"[78]"
+//
+command BRK(a)		"[00 {byte a}]"
 //
 command CMP_i(C)	"[c9 {short C}]"
 command CMP_8(C)	"[c9 {byte C}]"
@@ -142,6 +144,7 @@ command LDY_i(C)	"[a0 {short C}]"
 command LDY_8(C)	"[a0 {byte C}]"
 command LDY_a(a)	"[ac {short a}]"
 command LDY_d(a)	"[a4 {byte a}]"
+command LDY_x(a)	"[bc {short a}]"
 //
 command LSR			"[4a]"
 command LSR_a(a)	"[4e {short a}]"
@@ -190,6 +193,7 @@ command SBC_8(C)	"[e9 {byte C}]"
 command SBC_a(a)	"[ed {short a}]"
 command SBC_al(a)	"[ef {adr24(a)}]"
 command SBC_d(a)	"[e5 {byte a}]"
+command SBC_x(a)	"[fd {short a}]"
 //
 command SEP(C)		"[e2 {byte C}]"
 //
