@@ -470,8 +470,8 @@ command give_sprite_movaddr(entry, ptr) {
 command mov_end "[00]"
 command mov_loop_start(i) "[01 {byte i}]"
 command mov_loop_end "[02]"
-command mov_jmlmov(target) "[03 {mem24(ptr)}]"
-command mov_jslmov(target) "[04 {mem24(ptr)}]"
+command mov_jmlmov(target) "[03 {mem24(target)}]"
+command mov_jslmov(target) "[04 {mem24(target)}]"
 command mov_rtl "[05]"
 command mov_pause(n) "[06 {byte n}]"
 
@@ -497,7 +497,7 @@ command mov_setxy(x,y) "[28 {short x} 29 {short y}]"
 
 // Moves active entry by N.  This number is signed, so FFFF is negative 1, FFFE is negative 2, etc.
 command mov_movx(n) "[2B {short n}]"
-command mov_movy(n) "[2B {short n}]"
+command mov_movy(n) "[2C {short n}]"
 
 // Long calls assembly.
 command mov_jslasm(target) "[42 {mem24(target)}]"
